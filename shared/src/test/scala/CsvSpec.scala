@@ -131,6 +131,14 @@ object CSVSuite extends TestSuite {
       assert(t==List("20,\"30\",40","line2"))
     }
 
+    'viNewlineAtEndOfFile {
+      val it = new CSVReader(new java.io.StringReader(
+        "10, 20, 30\n"), headerRows = 0, quoteChar = ';' ).toList
+      val t = it.map (_.tail.head)
+
+      assert(t==List(10,20,30))
+    }
+
 
   }
 }

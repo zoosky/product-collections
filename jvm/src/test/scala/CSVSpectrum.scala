@@ -216,5 +216,15 @@ object CSVSpectrum extends TestSuite {
       assert(res2(2) == "ʤ")
     }
 
+     'viNewlineAtEndOfFile {
+      val f = new java.io.FileReader("./res/csvs/vi.csv")
+      val it = new CSVReader(f, headerRows = 0, quoteChar = ';')
+      val res = it.next
+      assert(res.length == 3)
+      assert(res(0) == "a")
+      assert(res(1) == "b")
+      assert(res(2) == "c")
+    }
+
   }
 }
