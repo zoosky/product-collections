@@ -1,6 +1,5 @@
 *.class
 *.log
-*.csv
 *.sh
 
 # sbt specific
